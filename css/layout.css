@@ -1,0 +1,11 @@
+body
+{
+	background-color: #EEE;
+	min-height: 500px;
+	padding-top: 60px;
+}
+
+.notification
+{
+	padding: 8px;
+}
