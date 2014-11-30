@@ -17,7 +17,7 @@ class WebSite_Page extends Framework_Model_Model
 	 * The logged in Facebook user.
 	 * @var Users_FacebookUser
 	 */
-	private $facebookUser = null;
+	private $user = null;
 
 	/**
 	 * The request object.
@@ -80,7 +80,7 @@ class WebSite_Page extends Framework_Model_Model
 		if (array_key_exists("user", $_SESSION) === true &&
 			$_SESSION["user"] instanceof Users_FacebookUser)
 		{
-			$this->setFacebookUser($_SESSION["user"]);
+			$this->setUser($_SESSION["user"]);
 		}
 		elseif ($this->getFaceBook() !== null)
 		{
@@ -92,7 +92,7 @@ class WebSite_Page extends Framework_Model_Model
 
 			if ($facebookUser !== null)
 			{
-				$this->setFacebookUser($facebookUser);
+				$this->setUser($facebookUser);
 
 				$updateUserCommand = new WebSite_Commands_UpdateUserCommand(
 					$this->getDatabaseConnection(),
@@ -157,7 +157,7 @@ class WebSite_Page extends Framework_Model_Model
 		$navigationItems->push($homeItem);
 		$navigationItems->push($disclaimerItem);
 
-		if ($this->getFacebookUser() !== null)
+		if ($this->getUser() !== null)
 		{
 			$profileItem = new WebSite_Navigation_Item(
 				"Profiel",
@@ -212,21 +212,21 @@ class WebSite_Page extends Framework_Model_Model
 	}
 
 	/**
-	 * Gets the logged in Facebook user.
-	 * @return Users_FacebookUser
+	 * Gets the logged in user.
+	 * @return Users_User
 	 */
-	public function getFacebookUser ()
+	public function getUser ()
 	{
-		return $this->facebookUser;
+		return $this->user;
 	}
 
 	/**
-	 * Sets the logged in Facebook user.
-	 * @param Users_FacebookUser $faceBookUser
+	 * Sets the logged in user.
+	 * @param Users_User $user
 	 */
-	private function setFacebookUser (Users_FacebookUser $faceBookUser)
+	private function setUser (Users_User $user)
 	{
-		$this->facebookUser = $faceBookUser;
+		$this->user = $user;
 	}
 
 	/**
