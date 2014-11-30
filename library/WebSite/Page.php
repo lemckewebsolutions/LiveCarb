@@ -56,7 +56,7 @@ class WebSite_Page extends Framework_Model_Model
 	public function load()
 	{
 		$this->loadFacebook();
-		$this->loadFaceBookUser();
+		$this->loadUser();
 	}
 
 	private function loadFacebook()
@@ -75,7 +75,7 @@ class WebSite_Page extends Framework_Model_Model
 		}
 	}
 
-	private function loadFaceBookUser()
+	private function loadUser()
 	{
 		if (array_key_exists("user", $_SESSION) === true &&
 			$_SESSION["user"] instanceof Users_FacebookUser)
