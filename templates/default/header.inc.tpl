@@ -27,3 +27,6 @@ foreach ($headerJsFiles as $headerJsFile)
 ?>
 	</head>
 	<body>
+		<?=$this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "default/navigation.inc.tpl")?>
+		<div class="container">
+			<div class="content col-xs-12 col-sm-12 col-md-8">

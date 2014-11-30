@@ -1,3 +1,8 @@
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4 widget">
+		<?=$this->includeFile(WebSite_IndexPageController::TEMPLATE_PATH . "default/sidebar.inc.tpl")?>
+	</div>
+</div>
 <div class="container">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer text-center">
 		<span>
