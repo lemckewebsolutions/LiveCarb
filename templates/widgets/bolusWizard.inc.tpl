@@ -5,7 +5,7 @@
 	<p>
 		Bereken hier je hoeveel insuline je nodig hebt voor je maaltijd.
 	</p>
-	<form method="POST" action="#" role="form">
+	<form method="POST" action="#" role="form" class="boluswizardform">
 		<div class="form-group">
 			<label for="koolhydraten">Gegeten koolhydraten</label>
 			<input name="carbs" type="number" class="form-control" id="koolhydraten" min="0" value="<?=$carbs?>" required>
