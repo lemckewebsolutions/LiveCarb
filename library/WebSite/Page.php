@@ -14,8 +14,8 @@ class WebSite_Page extends Framework_Model_Model
 	private $faceBook = null;
 
 	/**
-	 * The logged in Facebook user.
-	 * @var Users_FacebookUser
+	 * The logged in user.
+	 * @var Users_User
 	 */
 	private $user = null;
 
