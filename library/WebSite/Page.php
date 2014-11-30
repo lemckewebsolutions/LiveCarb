@@ -75,14 +75,9 @@ class WebSite_Page extends Framework_Model_Model
 		}
 	}
 
-	private function loadUser()
+	public function loadFacebookUser()
 	{
-		if (array_key_exists("user", $_SESSION) === true &&
-			$_SESSION["user"] instanceof Users_FacebookUser)
-		{
-			$this->setUser($_SESSION["user"]);
-		}
-		elseif ($this->getFaceBook() !== null)
+		if ($this->getFaceBook() !== null)
 		{
 			$retrieveUserCommand = new WebSite_Commands_RetrieveFacebookUser(
 					$this->getDatabaseConnection(),
@@ -103,6 +98,15 @@ class WebSite_Page extends Framework_Model_Model
 
 				$_SESSION["user"] = $facebookUser;
 			}
+		}
+	}
+
+	private function loadUser()
+	{
+		if (array_key_exists("user", $_SESSION) === true &&
+			$_SESSION["user"] instanceof Users_FacebookUser)
+		{
+			$this->setUser($_SESSION["user"]);
 		}
 	}
 
@@ -224,7 +228,7 @@ class WebSite_Page extends Framework_Model_Model
 	 * Sets the logged in user.
 	 * @param Users_User $user
 	 */
-	private function setUser (Users_User $user)
+	protected function setUser (Users_User $user)
 	{
 		$this->user = $user;
 	}
