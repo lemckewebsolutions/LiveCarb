@@ -7,7 +7,7 @@ class WebSite_IndexPageController extends WebSite_PageController
 		$request = $this->getRequest();
 		$queryString = $request->getRequestUrl()->getQueryString();
 
-		$page = new WebSite_IndexPage(
+		$page = new WebSite_Page(
 				$this->getConfiguration(),
 				$this->getRequest()
 		);
@@ -32,7 +32,7 @@ class WebSite_IndexPageController extends WebSite_PageController
 
 	public function post()
 	{
-		$page = new WebSite_IndexPage(
+		$page = new WebSite_Page(
 				$this->getConfiguration(),
 				$this->getRequest()
 		);

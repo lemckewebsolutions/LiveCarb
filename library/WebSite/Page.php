@@ -2,6 +2,12 @@
 class WebSite_Page extends Framework_Model_Model
 {
 	/**
+	 * The amount of carbs.
+	 * @var int
+	 */
+	private $carbs = -1;
+
+	/**
 	 * The configuration array.
 	 * @var Framework_Collection_Array
 	 */
@@ -14,10 +20,16 @@ class WebSite_Page extends Framework_Model_Model
 	private $faceBook = null;
 
 	/**
-	 * The logged in user.
-	 * @var Users_User
+	 * The amount of insuline.
+	 * @var float
 	 */
-	private $user = null;
+	private $insuline = -1;
+
+	/**
+	 * The ratio of the user.
+	 * @var float
+	 */
+	private $ratio = -1;
 
 	/**
 	 * The request object.
@@ -30,6 +42,12 @@ class WebSite_Page extends Framework_Model_Model
 	 * @var string
 	 */
 	private $title = "";
+
+	/**
+	 * The logged in user.
+	 * @var Users_User
+	 */
+	private $user = null;
 
 	public function __construct(
 			Framework_Collection_Array $configuration,
@@ -180,6 +198,41 @@ class WebSite_Page extends Framework_Model_Model
 	}
 
 	/**
+	 * Calculates the needed amount of insuline.
+	 * @param int $carbs
+	 * @param int $ratio
+	 */
+	public function calculateInsuline()
+	{
+		if ($this->getCarbs() > 0 &&
+			$this->getRatio() > 0)
+		{
+			$carbs = $this->getCarbs();
+			$ratio = $this->getRatio();
+
+			$this->setInsuline(round(($carbs / $ratio), 1));
+		}
+	}
+
+	/**
+	 * Gets the amount of carbs.
+	 * @return int The amount of carbs.
+	 */
+	public function getCarbs ()
+	{
+		return $this->carbs;
+	}
+
+	/**
+	 * Sets the amount of carbs.
+	 * @param int $carbs The amount of carbs.
+	 */
+	public function setCarbs ($carbs)
+	{
+		$this->carbs = (int)$carbs;
+	}
+
+	/**
 	 * Gets the configuration array.
 	 * @return Framework_Collection_Array
 	 */
@@ -216,6 +269,24 @@ class WebSite_Page extends Framework_Model_Model
 	}
 
 	/**
+	 * Gets the amount of insuline.
+	 * @return float The amount of insuline.
+	 */
+	public function getInsuline ()
+	{
+		return $this->insuline;
+	}
+
+	/**
+	 * Sets the amount of insuline.
+	 * @param float $insuline The amount of insuline.
+	 */
+	private function setInsuline ($insuline)
+	{
+		$this->insuline = (float)$insuline;
+	}
+
+	/**
 	 * Gets the logged in user.
 	 * @return Users_User
 	 */
@@ -231,6 +302,24 @@ class WebSite_Page extends Framework_Model_Model
 	protected function setUser (Users_User $user)
 	{
 		$this->user = $user;
+	}
+
+	/**
+	 * Gets the ratio of the user.
+	 * @return float The ratio of the user.
+	 */
+	public function getRatio ()
+	{
+		return $this->ratio;
+	}
+
+	/**
+	 * Sets the ratio of the user.
+	 * @param float $ratio The ratio of the user.
+	 */
+	public function setRatio ($ratio)
+	{
+		$this->ratio = (int)$ratio;
 	}
 
 	/**
