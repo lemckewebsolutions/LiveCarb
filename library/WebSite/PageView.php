@@ -14,7 +14,7 @@ class WebSite_PageView extends Framework_Views_PageView
 
 		$this->assignVariable("title", $page->getTitle());
 		$this->assignVariable("navigationItems", $page->getNavigationItems());
-		$this->assignVariable("showLogin", ($page->getFacebookUser() === null));
+		$this->assignVariable("showLogin", ($page->getUser() === null));
 		$this->assignVariable("facebookUser", $page->getFacebookUser());
 		$this->assignVariable("loginUrl", $loginUrl);
 		$this->assignVariable("logoutUrl", $this->getLogoutUrl()->getUrl());
