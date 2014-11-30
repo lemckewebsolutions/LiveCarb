@@ -4,12 +4,21 @@ class WebSite_IndexPageController extends WebSite_PageController
 {
 	public function get()
 	{
+		$request = $this->getRequest();
+		$queryString = $request->getRequestUrl()->getQueryString();
+
 		$page = new WebSite_IndexPage(
 				$this->getConfiguration(),
 				$this->getRequest()
 		);
 
 		$page->load();
+
+		if ($page->getUser() ===  null && $queryString->exists("code") === true)
+		{
+			$page->loadFacebookUser();
+			header("Location: ". WebSite_UrlPatterns::INDEX);
+		}
 
 		$view = new WebSite_IndexPageView(
 				self::TEMPLATE_PATH . "index.tpl",

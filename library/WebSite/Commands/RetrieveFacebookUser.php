@@ -16,7 +16,6 @@ class WebSite_Commands_RetrieveFacebookUser extends Framework_Database_Command
 
 	public function execute()
 	{
-		$connection = $this->getDatabaseConnection();
 		$facebook = $this->getFaceBook();
 		$facebookUser = null;
 

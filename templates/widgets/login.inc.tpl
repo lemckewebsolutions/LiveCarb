@@ -27,8 +27,8 @@ if ($showLogin)
 else
 {
 ?>
-	<img src="https://graph.facebook.com/<?=$facebookUser->getFacebookUserId()?>/picture">
-	<span><?=$facebookUser->getName()?></span>
+	<img src="https://graph.facebook.com/<?=$user->getFacebookUserId()?>/picture">
+	<span><?=$user->getName()?></span>
 	<p class="text-right">
 		<a href="<?=$logoutUrl?>">Uitloggen</a>
 	</p>
