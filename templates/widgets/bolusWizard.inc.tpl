@@ -12,7 +12,24 @@
 		</div>
 		<div class="form-group">
 			<label for="ratio">Aantal koolhydraten voor 1 eenheid insuline</label>
-			<input name="ratio" type="number" class="form-control" id="ratio" min="0" value="<?=$ratio?>" required>
+<?
+$readOnly = "";
+if ($ratioCanBeChanged === false)
+{
+	$readOnly = "readonly";
+}
+?>
+			<input name="ratio" type="number" class="form-control" id="ratio" min="0" value="<?=$ratio?>" required <?=$readOnly?>>
+<?
+if ($ratioCanBeChanged === false)
+{
+?>
+			<p class="notification bg-info">
+				Je kan je ratio aanpassen in je <a href="<?=WebSite_UrlPatterns::PROFIEL?>" title="Profiel">profiel</a>
+			</p>
+<?
+}
+?>
 		</div>
 		<button type="submit" class="btn btn-primary">Bereken</button>
 <?
