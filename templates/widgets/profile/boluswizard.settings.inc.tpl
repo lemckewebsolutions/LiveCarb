@@ -1,5 +1,5 @@
 <?
-$bolusInformation = $facebookUser->getBolusInformation();
+$bolusInformation = $user->getBolusInformation();
 
 $targetSugar = 0;
 $ratio = 0;

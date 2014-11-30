@@ -18,7 +18,7 @@ class WebSite_ProfilePageController extends WebSite_PageController
 
 		$page->load();
 
-		if ($page->getFacebookUser() === null)
+		if ($page->getUser() === null)
 		{
 			header("Location: http://www.livecarb.nl");
 			return;
@@ -44,7 +44,7 @@ class WebSite_ProfilePageController extends WebSite_PageController
 		$page->load();
 		$page->storeBolusInformation();
 
-		if ($page->getFacebookUser() === null)
+		if ($page->getUser() === null)
 		{
 			header("Location: http://www.livecarb.nl");
 			return;

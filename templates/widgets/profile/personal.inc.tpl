@@ -5,7 +5,7 @@
 	<table>
 		<tr>
 			<th>Naam:&nbsp;</th>
-			<td><?=$facebookUser->getName()?></td>
+			<td><?=$user->getName()?></td>
 		</tr>
 	</table>
 </div>
