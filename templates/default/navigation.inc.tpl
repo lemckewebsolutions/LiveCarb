@@ -14,14 +14,62 @@
 <?
 foreach ($navigationItems as $navigationItem)
 {
-	$class = "";
-	if ($navigationItem->getActive() === true)
+	if ($navigationItem->getSubItems()->getLength() > 0)
 	{
-		$class = "active";
+?>
+		<li class="dropdown">
+<?
+		if ($navigationItem->getTitle() === "Profiel" &&
+			$user instanceof Users_FacebookUser)
+		{
+?>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+				<?=$user->getName()?><span class="caret"></span>
+			</a>
+<?
+		}
+		else
+		{
+?>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+				<?=$navigationItem->getTitle()?><span class="caret"></span>
+			</a>
+<?
+		}
+?>
+			<ul class="dropdown-menu" role="menu">
+<?
+	foreach ($navigationItem->getSubItems() as $subItem)
+	{
+		$class = "";
+		if ($navigationItem->getActive() === true)
+		{
+			$class = "active";
+		}
+?>
+				<li class="<?=$class?>">
+					<a href="<?=$subItem->getUrl()?>">
+						<?=$subItem->getTitle()?>
+					</a>
+				</li>
+<?
 	}
+?>
+			</ul>
+		</li>
+<?
+	}
+	else
+	{
+		$class = "";
+		if ($navigationItem->getActive() === true)
+		{
+			$class = "active";
+		}
 ?>
 				<li class="<?=$class?>"><a href="<?=$navigationItem->getUrl()?>"><?=$navigationItem->getTitle()?></a></li>
 <?
+	}
 }
 ?>
 			</ul>

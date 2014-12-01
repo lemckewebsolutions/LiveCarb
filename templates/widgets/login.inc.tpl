@@ -17,22 +17,7 @@ else
 	</p>
 </div>
 <div class="widget-body">
-<?
-if ($showLogin)
-{
-?>
-	<a href="<?=$loginUrl?>">Login met Facebook</a>
-<?
-}
-else
-{
-?>
-	<img src="https://graph.facebook.com/<?=$user->getFacebookUserId()?>/picture">
-	<span><?=$user->getName()?></span>
-	<p class="text-right">
-		<a href="<?=$logoutUrl?>">Uitloggen</a>
-	</p>
-<?
-}
-?>
+	<a href="<?=$loginUrl?>">
+		<img src="images/btn_facebook_login.png" title="Inloggen met Facebook">
+	</a>
 </div>
