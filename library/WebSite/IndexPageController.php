@@ -1,6 +1,6 @@
 <?php
 class WebSite_IndexPageController extends WebSite_PageController
-	implements Framework_Http_IGet, Framework_Http_IPost
+	implements Framework_Http_IGet
 {
 	public function get()
 	{
@@ -26,39 +26,6 @@ class WebSite_IndexPageController extends WebSite_PageController
 		);
 
 		$this->assignClientCodeFiles($view);
-
-		return $view->parse();
-	}
-
-	public function post()
-	{
-		$page = new WebSite_Page(
-				$this->getConfiguration(),
-				$this->getRequest()
-		);
-
-		$page->load();
-
-		$view = new WebSite_IndexPageView(
-				self::TEMPLATE_PATH . "index.tpl",
-				$page
-		);
-
-		$this->assignClientCodeFiles($view);
-
-		$postedFields = $this->getRequest()->getPostFields();
-
-		if ($postedFields->keyExists("carbs") === true &&
-			$postedFields->keyExists("ratio") === true)
-		{
-			$carbs = $postedFields->offsetGet("carbs");
-			$ratio = $postedFields->offsetGet("ratio");
-
-			$page->setCarbs($carbs);
-			$page->setRatio($ratio);
-		}
-
-		$page->calculateInsuline();
 
 		return $view->parse();
 	}
