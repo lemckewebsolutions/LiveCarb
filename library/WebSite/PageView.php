@@ -4,6 +4,7 @@ class WebSite_PageView extends Framework_Views_PageView
 	private function assignBolusWizardInformation()
 	{
 		$page = $this->getPage();
+		$ratio = 10;
 		$ratioCanBeChanged = true;
 
 		$user = $page->getUser();
@@ -15,11 +16,13 @@ class WebSite_PageView extends Framework_Views_PageView
 			$ratioCanBeChanged = false;
 
 			$bolusInformation = $user->getBolusInformation();
+			$ratio = $bolusInformation->getRatio();
 			$this->assignVariable("targetSugar", $bolusInformation->getTargetSugar());
 			$this->assignVariable("sensitivity", $bolusInformation->getSensitivity());
 		}
 
 		$this->assignVariable("title", $page->getTitle());
+		$this->assignVariable("ratio", $ratio);
 		$this->assignVariable("ratioCanBeChanged", $ratioCanBeChanged);
 	}
 

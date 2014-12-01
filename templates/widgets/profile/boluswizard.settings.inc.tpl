@@ -2,7 +2,6 @@
 $bolusInformation = $user->getBolusInformation();
 
 $targetSugar = 0;
-$ratio = 0;
 $sensitivity = 0;
 $class = "";
 ?>

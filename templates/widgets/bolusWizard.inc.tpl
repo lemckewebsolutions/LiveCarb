@@ -32,7 +32,7 @@ if ($ratioCanBeChanged === false)
 	$readOnly = "readonly";
 }
 ?>
-			<input name="ratio" type="number" class="form-control" id="ratio" min="0" value="10" required <?=$readOnly?>>
+			<input name="ratio" type="number" class="form-control" id="ratio" min="0" value="<?=$ratio?>" required <?=$readOnly?>>
 <?
 if ($ratioCanBeChanged === false)
 {
