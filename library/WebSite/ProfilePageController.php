@@ -24,7 +24,7 @@ class WebSite_ProfilePageController extends WebSite_PageController
 			return;
 		}
 
-		$view = new WebSite_IndexPageView(
+		$view = new WebSite_PageView(
 				self::TEMPLATE_PATH . "profile.tpl",
 				$page
 		);
@@ -50,7 +50,7 @@ class WebSite_ProfilePageController extends WebSite_PageController
 			return;
 		}
 
-		$view = new WebSite_IndexPageView(
+		$view = new WebSite_PageView(
 				self::TEMPLATE_PATH . "profile.tpl",
 				$page
 		);

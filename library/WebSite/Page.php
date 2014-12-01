@@ -168,10 +168,25 @@ class WebSite_Page extends Framework_Model_Model
 				WebSite_UrlPatterns::PROFIEL
 			);
 
-			if ($requestUrl->getPath() === WebSite_UrlPatterns::PROFIEL)
+			$settingItem = new WebSite_Navigation_Item(
+				"Instellingen",
+				WebSite_UrlPatterns::PROFIEL
+			);
+
+			$logOutItem = new WebSite_Navigation_Item(
+					"Uitloggen",
+					WebSite_UrlPatterns::LOGOUT
+			);
+
+			switch($requestUrl->getPath())
 			{
-				$profileItem->setActive(true);
+				case WebSite_UrlPatterns::PROFIEL:
+					$settingItem->setActive(true);
+					break;
 			}
+
+			$profileItem->getSubItems()->push($settingItem);
+			$profileItem->getSubItems()->push($logOutItem);
 
 			$navigationItems->push($profileItem);
 		}
