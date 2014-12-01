@@ -31,7 +31,9 @@ if ($ratioCanBeChanged === false)
 }
 ?>
 		</div>
-		<button type="submit" class="btn btn-primary">Bereken</button>
+		<div class="js-bolus-wizard-submit">
+			<button type="submit" class="btn btn-primary">Bereken</button>
+		</div>
 <?
 if ($insuline > 0)
 {

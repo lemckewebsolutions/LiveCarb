@@ -5,6 +5,11 @@ body
 	padding-top: 60px;
 }
 
+.inline-block
+{
+	display: inline-block;
+}
+
 .notification
 {
 	padding: 8px;
