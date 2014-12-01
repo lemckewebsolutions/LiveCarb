@@ -20,14 +20,15 @@ class WebSite_PageView extends Framework_Views_PageView
 
 		$user = $page->getUser();
 
-		if (
-			$user !== null &&
-			$user->getBolusInformation() !== null &&
-			$user->getBolusInformation()->getRatio() > 0
-		)
+		if ($user !== null &&
+			$user->getBolusInformation() !== null)
 		{
 			$ratio = $user->getBolusInformation()->getRatio();
 			$ratioCanBeChanged = false;
+
+			$bolusInformation = $user->getBolusInformation();
+			$this->assignVariable("targetSugar", $bolusInformation->getTargetSugar());
+			$this->assignVariable("sensitivity", $bolusInformation->getSensitivity());
 		}
 
 		$this->assignVariable("title", $page->getTitle());
