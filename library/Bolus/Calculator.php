@@ -9,6 +9,6 @@ abstract class Bolus_Calculator
 	 */
 	public static function calculateInsuline($carbs, $ratio)
 	{
-		return $carbs / $ratio;
+		return round(($carbs / $ratio), 1);
 	}
 }
