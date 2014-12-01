@@ -1,5 +1,5 @@
 <?php
-class WebSite_ProfilePage extends WebSite_IndexPage
+class WebSite_ProfilePage extends WebSite_Page
 {
 	public function storeBolusInformation()
 	{
