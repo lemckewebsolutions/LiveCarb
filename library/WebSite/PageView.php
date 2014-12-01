@@ -1,6 +1,28 @@
 <?php
 class WebSite_PageView extends Framework_Views_PageView
 {
+	private function assignBolusWizardInformation()
+	{
+		$page = $this->getPage();
+		$ratioCanBeChanged = true;
+
+		$user = $page->getUser();
+
+		if ($user !== null &&
+			$user->getBolusInformation() !== null)
+		{
+			$ratio = $user->getBolusInformation()->getRatio();
+			$ratioCanBeChanged = false;
+
+			$bolusInformation = $user->getBolusInformation();
+			$this->assignVariable("targetSugar", $bolusInformation->getTargetSugar());
+			$this->assignVariable("sensitivity", $bolusInformation->getSensitivity());
+		}
+
+		$this->assignVariable("title", $page->getTitle());
+		$this->assignVariable("ratioCanBeChanged", $ratioCanBeChanged);
+	}
+
 	public function parse ()
 	{
 		$page = $this->getPage();
@@ -18,6 +40,8 @@ class WebSite_PageView extends Framework_Views_PageView
 		$this->assignVariable("user", $page->getUser());
 		$this->assignVariable("loginUrl", $loginUrl);
 		$this->assignVariable("logoutUrl", $this->getLogoutUrl()->getUrl());
+
+		$this->assignBolusWizardInformation();
 
 		return parent::parse();
 	}

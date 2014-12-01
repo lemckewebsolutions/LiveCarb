@@ -14,12 +14,6 @@ class WebSite_Page extends Framework_Model_Model
 	private $faceBook = null;
 
 	/**
-	 * The logged in user.
-	 * @var Users_User
-	 */
-	private $user = null;
-
-	/**
 	 * The request object.
 	 * @var Framework_Http_Request
 	 */
@@ -30,6 +24,12 @@ class WebSite_Page extends Framework_Model_Model
 	 * @var string
 	 */
 	private $title = "";
+
+	/**
+	 * The logged in user.
+	 * @var Users_User
+	 */
+	private $user = null;
 
 	public function __construct(
 			Framework_Collection_Array $configuration,

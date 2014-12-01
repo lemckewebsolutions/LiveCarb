@@ -37,6 +37,7 @@ class WebSite_PageController extends Framework_Request_PageController
 		$cssFiles->push("widget.css");
 
 		$jsFooterFiles->push("bootstrap.min.js");
+		$jsFooterFiles->push("boluswizard.js");
 
 		$jsHeaderFiles->push("jquery.js");
 		$jsHeaderFiles->push("googleAnalytics.js");

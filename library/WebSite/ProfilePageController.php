@@ -11,7 +11,7 @@ class WebSite_ProfilePageController extends WebSite_PageController
 
 	public function get()
 	{
-		$page = new WebSite_IndexPage(
+		$page = new WebSite_ProfilePage(
 				$this->getConfiguration(),
 				$this->getRequest()
 		);

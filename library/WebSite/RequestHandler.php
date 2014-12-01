@@ -21,6 +21,11 @@ class WebSite_RequestHandler extends Framework_Request_RequestHandler
 	private function registerControllers()
 	{
 		$this->getUrlPatterns()->offsetSet(
+				WebSite_UrlPatterns::BOLUS_WIZARD,
+				"WebSite_BolusWizardController"
+		);
+
+		$this->getUrlPatterns()->offsetSet(
 				WebSite_UrlPatterns::INDEX,
 				"WebSite_IndexPageController"
 		);
