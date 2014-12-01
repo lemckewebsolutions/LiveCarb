@@ -20,7 +20,7 @@ class WebSite_IndexPageController extends WebSite_PageController
 			header("Location: ". WebSite_UrlPatterns::INDEX);
 		}
 
-		$view = new WebSite_IndexPageView(
+		$view = new WebSite_PageView(
 				self::TEMPLATE_PATH . "index.tpl",
 				$page
 		);

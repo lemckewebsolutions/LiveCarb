@@ -4,19 +4,7 @@ class WebSite_PageView extends Framework_Views_PageView
 	private function assignBolusWizardInformation()
 	{
 		$page = $this->getPage();
-		$carbs = 0;
-		$ratio = 10;
 		$ratioCanBeChanged = true;
-
-		if ($page->getCarbs() > 0)
-		{
-			$carbs = $page->getCarbs();
-		}
-
-		if ($page->getRatio() > 0)
-		{
-			$ratio = $page->getRatio();
-		}
 
 		$user = $page->getUser();
 
@@ -32,10 +20,7 @@ class WebSite_PageView extends Framework_Views_PageView
 		}
 
 		$this->assignVariable("title", $page->getTitle());
-		$this->assignVariable("carbs", $carbs);
 		$this->assignVariable("ratioCanBeChanged", $ratioCanBeChanged);
-		$this->assignVariable("ratio", $ratio);
-		$this->assignVariable("insuline", $page->getInsuline());
 	}
 
 	public function parse ()

@@ -21,7 +21,7 @@ if ($user !== null)
 ?>
 		<div class="form-group">
 			<label for="koolhydraten">Gegeten koolhydraten</label>
-			<input name="carbs" type="number" class="form-control" id="koolhydraten" min="0" value="<?=$carbs?>" required>
+			<input name="carbs" type="number" class="form-control" id="koolhydraten" min="0" value="0" required>
 		</div>
 		<div class="form-group">
 			<label for="ratio">Aantal koolhydraten voor 1 eenheid insuline</label>
@@ -32,7 +32,7 @@ if ($ratioCanBeChanged === false)
 	$readOnly = "readonly";
 }
 ?>
-			<input name="ratio" type="number" class="form-control" id="ratio" min="0" value="<?=$ratio?>" required <?=$readOnly?>>
+			<input name="ratio" type="number" class="form-control" id="ratio" min="0" value="10" required <?=$readOnly?>>
 <?
 if ($ratioCanBeChanged === false)
 {
@@ -47,13 +47,5 @@ if ($ratioCanBeChanged === false)
 		<div class="js-bolus-wizard-submit">
 			<button type="submit" class="btn btn-primary">Bereken</button>
 		</div>
-<?
-if ($insuline > 0)
-{
-?>
-		<p>Advies: <?=$insuline?> eenheden.</p>
-<?
-}
-?>
 	</form>
 </div>
