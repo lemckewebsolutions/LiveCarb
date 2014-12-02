@@ -11,4 +11,4 @@ if (file_exists("Configuration.Local.php") === true)
 }
 
 $requestHandler = new WebSite_RequestHandler($configuration);
-$requestHandler->processRequest();
+//$requestHandler->processRequest();
