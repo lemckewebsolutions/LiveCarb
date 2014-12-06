@@ -236,12 +236,9 @@ class WebSite_Page extends Framework_Model_Model
 	 */
 	public function getFacebookLoginUrl()
 	{
-		$facebook = $this->getFaceBook();
-		$isDevelopment = $this->getRequest()->isDevelopment();
-
 		$redirectUrl = "http://www.livecarb.nl";
 
-		if ($isDevelopment === true)
+		if ($this->getRequest()->isDevelopment() === true)
 		{
 			$redirectUrl .= ".vm";
 		}
