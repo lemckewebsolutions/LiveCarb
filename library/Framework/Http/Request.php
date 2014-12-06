@@ -23,6 +23,21 @@ class Framework_Http_Request
 	}
 
 	/**
+	 * Gets whether the connection comes from a development environment.
+	 * @return bool Whether the connection comes from a development environment.
+	 */
+	public function isDevelopment ()
+	{
+		$isDevelopment = false;
+
+		if (strpos($_SERVER["HTTP_HOST"], ".vm") > 0)
+		{
+			$isDevelopment = true;
+		}
+		return $isDevelopment;
+	}
+
+	/**
 	 * Gets the list of posted fields.
 	 * @return Framework_Collection_Array
 	 */

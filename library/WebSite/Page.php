@@ -230,6 +230,27 @@ class WebSite_Page extends Framework_Model_Model
 		$this->faceBook = $faceBook;
 	}
 
+	public function getFacebookLoginUrl()
+	{
+		$facebook = $this->getFaceBook();
+		$isDevelopment = $this->getRequest()->isDevelopment();
+
+		$redirectUrl = "http://www.livecarb.nl";
+
+		if ($isDevelopment === true)
+		{
+			$redirectUrl .= ".vm";
+		}
+
+		$loginUrl = $this->getFaceBook()->getLoginUrl(
+			array(
+				"redirect_uri" => $redirectUrl
+			)
+		);
+
+		return $loginUrl;
+	}
+
 	/**
 	 * Gets the logged in user.
 	 * @return Users_User

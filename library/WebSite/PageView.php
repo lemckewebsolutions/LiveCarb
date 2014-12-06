@@ -31,17 +31,11 @@ class WebSite_PageView extends Framework_Views_PageView
 		$page = $this->getPage();
 		$facebook = $page->getFacebook();
 
-		$loginUrl = $facebook->getLoginUrl(
-			array(
-				"redirect_uri" => "http://www.livecarb.nl"
-			)
-		);
-
 		$this->assignVariable("title", $page->getTitle());
 		$this->assignVariable("navigationItems", $page->getNavigationItems());
 		$this->assignVariable("showLogin", ($page->getUser() === null));
 		$this->assignVariable("user", $page->getUser());
-		$this->assignVariable("loginUrl", $loginUrl);
+		$this->assignVariable("loginUrl", $page->getFacebookLoginUrl());
 		$this->assignVariable("logoutUrl", $this->getLogoutUrl()->getUrl());
 
 		$this->assignBolusWizardInformation();
