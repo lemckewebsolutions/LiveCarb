@@ -230,6 +230,10 @@ class WebSite_Page extends Framework_Model_Model
 		$this->faceBook = $faceBook;
 	}
 
+	/**
+	 * Get the redirect url that is passed to Facebook.
+	 * @return string The redirect url that is passed to Facebook.
+	 */
 	public function getFacebookLoginUrl()
 	{
 		$facebook = $this->getFaceBook();
