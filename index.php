@@ -1,14 +1,9 @@
 <?php
-error_reporting(-1);
-ini_set('display_errors', 'On');
-include_once("library/Framework/Core/Bootstrap.php");
-
-$configuration = new Framework_Collection_Array();
-
-if (file_exists("Configuration.Local.php") === true)
+if (strpos($_SERVER["HTTP_HOST"], "livecarb.nl") !== false)
 {
-	include_once("Configuration.Local.php");
+	include_once("applications/Website/index.php");
 }
-
-$requestHandler = new WebSite_RequestHandler($configuration);
-$requestHandler->processRequest();
+elseif (strpos($_SERVER["HTTP_HOST"], "api.livecarb.nl") !== false)
+{
+	include_once("applications/Api/index.php");
+}
