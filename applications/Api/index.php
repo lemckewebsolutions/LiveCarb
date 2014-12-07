@@ -10,4 +10,5 @@ if (file_exists("applications/Api/Configuration.Local.php") === true)
 	include_once("applications/Api/Configuration.Local.php");
 }
 
-echo "The API is still under construction.";
+$requestHandler = new Api_RequestHandler($configuration);
+$requestHandler->processRequest();
