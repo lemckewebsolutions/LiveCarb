@@ -231,6 +231,28 @@ class WebSite_Page extends Framework_Model_Model
 	}
 
 	/**
+	 * Get the redirect url that is passed to Facebook.
+	 * @return string The redirect url that is passed to Facebook.
+	 */
+	public function getFacebookLoginUrl()
+	{
+		$redirectUrl = "http://www.livecarb.nl";
+
+		if ($this->getRequest()->isDevelopment() === true)
+		{
+			$redirectUrl .= ".vm";
+		}
+
+		$loginUrl = $this->getFaceBook()->getLoginUrl(
+			array(
+				"redirect_uri" => $redirectUrl
+			)
+		);
+
+		return $loginUrl;
+	}
+
+	/**
 	 * Gets the logged in user.
 	 * @return Users_User
 	 */
