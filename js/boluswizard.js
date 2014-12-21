@@ -36,5 +36,5 @@ $(document).on("submit", ".boluswizardform", function(event)
 				"Advies: " + data.insuline + " eenheden" +
 			"</p>"
 		);
-    })
+    });
 });

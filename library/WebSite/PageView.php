@@ -29,7 +29,6 @@ class WebSite_PageView extends Framework_Views_PageView
 	public function parse ()
 	{
 		$page = $this->getPage();
-		$facebook = $page->getFacebook();
 
 		$this->assignVariable("title", $page->getTitle());
 		$this->assignVariable("navigationItems", $page->getNavigationItems());
