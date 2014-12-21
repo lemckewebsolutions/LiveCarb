@@ -2,7 +2,7 @@
 abstract class WebSite_UrlPatterns
 {
 	const BOLUS_WIZARD = "/boluswizard";
-	
+
 	const DISCLAIMER = "/disclaimer";
 
 	const INDEX = "/";
@@ -10,4 +10,6 @@ abstract class WebSite_UrlPatterns
 	const LOGOUT = "/logout";
 
 	const PROFIEL = "/profiel";
+
+	const SEARCH = "/search";
 }
