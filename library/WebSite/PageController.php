@@ -61,6 +61,19 @@ class WebSite_PageController extends Framework_Request_PageController
 		$this->configuration = $configuration;
 	}
 
+	protected function isAjaxRequest()
+	{
+		$isAjaxRequest = false;
+
+		if (array_key_exists("HTTP_X_REQUESTED_WITH", $_SERVER) === true &&
+			strtolower($_SERVER["HTTP_X_REQUESTED_WITH"]) === "xmlhttprequest")
+		{
+			$isAjaxRequest = true;
+		}
+
+		return $isAjaxRequest;
+	}
+
 	/**
 	 * Gets the request object.
 	 * @return Framework_Http_Request

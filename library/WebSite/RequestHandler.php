@@ -44,6 +44,11 @@ class WebSite_RequestHandler extends Framework_Request_RequestHandler
 				WebSite_UrlPatterns::PROFIEL,
 				"WebSite_ProfilePageController"
 		);
+
+		$this->getUrlPatterns()->offsetSet(
+				WebSite_UrlPatterns::SEARCH,
+				"WebSite_SearchController"
+		);
 	}
 
 	public function processRequest()
@@ -65,13 +70,8 @@ class WebSite_RequestHandler extends Framework_Request_RequestHandler
 				$postedFields
 		);
 
-		if ($urlPatterns->offsetExists($requestUrl->getPath()) === false)
-		{
-			$requestPattern = "/";
-		}
-
-		$controller = $urlPatterns->offsetGet($requestUrl->getPath());
-		$controller = new $controller($request, $this->getConfiguration());
+		$controllerName = $urlPatterns->offsetGet($requestUrl->getPath());
+		$controller = new $controllerName($request, $this->getConfiguration());
 
 		echo parent::executeRequest($controller);
 	}
